@@ -12,14 +12,14 @@ class ControllerSecretary:
         self.result_file_name = "Sequence result file"
         self.result_file_extension = ".txt"
 
-    def load_target_file(self, buttonStringVar):
-        file_name = askopenfilename(defaultextension='.txt', filetype=(("FASTA", "*.fasta"), ("All files", "*.*")))
+    def load_target_file(self, button_string_var):
+        file_name = askopenfilename()
 
         if file_name:
             try:
                 self.target_file_path = file_name
                 print(self.target_file_path)
-                buttonStringVar.set(self.get_file_name(file_name))
+                button_string_var.set(self.get_file_name(file_name))
 
             except:
                 showerror("Opening Sequence File", "Failed to read file \n '%s'" % file_name)
