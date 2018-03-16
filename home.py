@@ -16,10 +16,11 @@ class ViewHome:
         button_load_file.grid(row=1, column=1)
         label_results_file_name = Label(frame, text="Name output file and do not include file extension: ")
         label_results_file_name.grid(row=2, column=1)
-        button_run_sequence_finder = Button(frame, text="Find instances of sequence", width=30, command=secretary.get_target_sequences)
-        button_run_sequence_finder.grid(row=3, column=1, columnspan=2)
-        entry_result_file_name = Entry(frame, width=30)
+        entry_result_file_name_text = tk.StringVar()
+        entry_result_file_name = Entry(frame, width=30, textvariable=entry_result_file_name_text)
         entry_result_file_name.grid(row=2, column=2)
+        button_run_sequence_finder = Button(frame, text="Find instances of sequence", width=30, command=lambda: secretary.get_target_sequences(entry_result_file_name_text.get()))
+        button_run_sequence_finder.grid(row=3, column=1, columnspan=2)
         frame.mainloop()
 
 

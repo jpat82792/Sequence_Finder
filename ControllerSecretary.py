@@ -42,18 +42,18 @@ class ControllerSecretary:
     def amino_acid_target_sequence_regex_convert(self, target_sequence):
         regexable_string = target_sequence.replace("X", ".")
 
-    def write_target_sequences_to_file(self, matches):
+    def write_target_sequences_to_file(self, matches, output_file_name):
         matches_length = len(matches)
-        results_file = open(self.result_file_name + self.result_file_extension, "w+")
+        results_file = open(output_file_name + self.result_file_extension, "w+")
         for i in range(matches_length):
             inner_length = len(matches[i])
             for j in range(inner_length):
                 results_file.write(matches[i][j]+"   ")
             results_file.write('\n')
 
-    def get_target_sequences(self):
+    def get_target_sequences(self, file_name):
         file = self.open_file()
         print(file)
         matches = self.compiled_regex.findall(file)
         print(matches)
-        self.write_target_sequences_to_file(matches=matches)
+        self.write_target_sequences_to_file(matches=matches, output_file_name=file_name)
