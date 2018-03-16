@@ -13,7 +13,7 @@ class ControllerSecretary:
         self.result_file_extension = ".txt"
 
     def load_target_file(self, buttonStringVar):
-        file_name = askopenfilename(filetype=(("FASTA","*.fasta"), ("All files", "*.*")))
+        file_name = askopenfilename(defaultextension='.txt', filetype=(("FASTA", "*.fasta"), ("All files", "*.*")))
 
         if file_name:
             try:
