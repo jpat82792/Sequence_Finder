@@ -9,6 +9,8 @@ class ControllerSecretary:
         self.target_file_path = ""
         self.regex_expression = "([A-Z]{0,10})(K...W)([A-Z]{0,10})"
         self.compiled_regex = re.compile(self.regex_expression)
+        self.result_file_name = "Sequence result file"
+        self.result_file_extension = ".txt"
 
     def load_target_file(self, buttonStringVar):
         file_name = askopenfilename(filetype=(("FASTA","*.fasta"), ("All files", "*.*")))
@@ -42,7 +44,7 @@ class ControllerSecretary:
 
     def write_target_sequences_to_file(self, matches):
         matches_length = len(matches)
-        results_file = open("SEQ results.txt", "w+")
+        results_file = open(self.result_file_name + self.result_file_extension, "w+")
         for i in range(matches_length):
             inner_length = len(matches[i])
             for j in range(inner_length):
