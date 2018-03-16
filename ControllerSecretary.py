@@ -10,7 +10,6 @@ class ControllerSecretary:
         self.regex_expression = "([A-Z]{0,10})(K...W)([A-Z]{0,10})"
         self.compiled_regex = re.compile(self.regex_expression)
 
-
     def load_target_file(self, buttonStringVar):
         file_name = askopenfilename(filetype=(("FASTA","*.fasta"), ("All files", "*.*")))
 
@@ -35,8 +34,24 @@ class ControllerSecretary:
         else:
             return
 
+    def nucleotide_target_sequence_regex_convert(self, target_sequence):
+        regexable_string = target_sequence.replace("N", ".")
+
+    def amino_acid_target_sequence_regex_convert(self, target_sequence):
+        regexable_string = target_sequence.replace("X", ".")
+
+    def write_target_sequences_to_file(self, matches):
+        matches_length = len(matches)
+        results_file = open("SEQ results.txt", "w+")
+        for i in range(matches_length):
+            inner_length = len(matches[i])
+            for j in range(inner_length):
+                results_file.write(matches[i][j]+"   ")
+            results_file.write('\n')
+
     def get_target_sequences(self):
         file = self.open_file()
         print(file)
-        matches = self.compiled_regex.search(file)
+        matches = self.compiled_regex.findall(file)
         print(matches)
+        self.write_target_sequences_to_file(matches=matches)
