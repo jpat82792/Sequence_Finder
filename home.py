@@ -8,6 +8,7 @@ class ViewHome:
     def __init__(self):
 
         frame = Tk()
+        frame.winfo_toplevel().title("Sequence Finder")
         secretary = ControllerSecretary.ControllerSecretary()
         button_load_file_text = tk.StringVar()
         button_load_file_text.set("Select sequence file")
