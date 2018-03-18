@@ -12,9 +12,8 @@ class ViewHome:
     frame.winfo_toplevel().title("Sequence Finder")
 
     def __init__(self):
-        self.frame.winfo_toplevel().title("okay")
-        print(self.frame)
-        selectSequenceScreen = ViewSelectSequenceType.ViewSelectSequenceType(main_frame=self.frame)
+
+        selectSequenceScreen = ViewSelectSequenceType.ViewSelectSequenceType(main_frame=self.frame, home=self)
         self.screen.append(selectSequenceScreen)
         ''' 
         secretary = ControllerSecretary.ControllerSecretary()
@@ -33,6 +32,8 @@ class ViewHome:
         '''
         self.frame.mainloop()
 
+    def repack(self):
+        self.screen[0].pack()
 
 ViewHome()
 
