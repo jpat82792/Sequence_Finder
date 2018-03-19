@@ -1,42 +1,36 @@
-from tkinter import *
+import kivy
 import AbstractScreen
+from kivy.uix.label import Label
+from kivy.lang.builder import Builder
+import os
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.clock import Clock
+from kivy.uix.filechooser import FileChooser
+from kivy.uix.dropdown import DropDown
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.stacklayout import StackLayout
+from kivy.uix.relativelayout import RelativeLayout
+
+project_directory = os.path.dirname(os.path.abspath(__file__))
 
 
-class ViewSelectSequenceType(AbstractScreen.AbstractScreen):
-    sequence_type_list = ["nucleotide", "amino acid"]
-    ui_elements = []
+class ViewSelectSequenceType(Screen):
 
-    def __init__(self, main_frame, home):
-        self.current_parent = LabelFrame(main_frame)
-        self.current_parent.pack()
-        self.current_parent.place(relheight=1, relwidth=1)
-        self.ui_elements.append(self.current_parent)
-        self.listbox_sequence_type_list = Listbox(self.current_parent)
-        self.__init_listbox(listbox=self.listbox_sequence_type_list)
-        self.listbox_sequence_type_list.pack()
-        self.listbox_sequence_type_list.place(bordermode=INSIDE, relheight=0.1, relwidth=0.5, relx=0.25, rely=0.1)
-        self.ui_elements.append(self.listbox_sequence_type_list)
-        label = Label(text="Sequence Type", font=(None, 50))
-        label.pack()
-        label.place(bordermode=INSIDE, relheight=0.1, relwidth=0.5, relx=0.25, rely=0.0)
-        self.ui_elements.append(label)
-        self.button = Button(text="NEXT", font=(None, 50), command= self.next_screen)
-        self.button.pack()
-        self.ui_elements.append(self.button)
-        self.__init_next_button(current_parent=self.current_parent, main_frame=main_frame, home=home, button=self.button)
+    sequence_types = ["Nucleotide", "Amino Acid"]
 
-    def __init_listbox(self, listbox):
-        listbox_content_length = len(self.sequence_type_list)
-        for i in range(listbox_content_length):
-            listbox.insert(i, self.sequence_type_list[i])
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        #self.main_layout = AnchorLayout(anchor_x="left", anchor_y="top")
+        self.main_layout = RelativeLayout()
 
-    def __init_next_button(self, current_parent, main_frame, home, button):
-        button.place(bordermode=INSIDE, relheight=0.1, relwidth=0.5, relx=0.25, rely=0.2)
+        self.button_dropdown = Button(text="hello", size_hint_x=0.5, size_hint_y=0.05, pos_hint={'y': 0.95, 'x': 0.25})
+        self.main_layout.add_widget(self.button_dropdown)
+        Clock.schedule_once(self.my_init, 1)
 
-    def pack(self):
-        for element in self.ui_elements:
-            element.pack()
+    def my_init(self, *args):
+        self.add_widget(self.main_layout)
 
-    def next_screen(self):
-        print(self.current_parent)
-        self.current_parent.pack_forget()
+
