@@ -1,0 +1,12 @@
+import ModelQueryResults;
+
+
+class ModelSequenceQuery:
+    path_to_sequence_file = None
+    max_units_before_target = None
+    max_units_after_target = None
+    target_sequence = None
+    query_sequence_results = None
+
+    def __init__(self):
+        pass

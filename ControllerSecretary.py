@@ -8,6 +8,7 @@ The secretary can create and modify ModelSequenceQuery
 
 
 class ControllerSecretary:
+    sequence_type = None
 
     def __init__(self):
         print("init secretary")
