@@ -7,21 +7,15 @@ import ViewSelectSequenceType
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-
-
-
 project_directory = os.path.dirname(os.path.abspath(__file__))
 sm = ScreenManager()
-sm.add_widget(ViewSelectSequenceType.ViewSelectSequenceType(name="Sequence Type"))
+sm.add_widget(ViewSelectSequenceType.ViewSelectSequenceType(name="Sequence Type", next_screen=""))
 sm.current = "Sequence Type"
-
-
 
 
 class HomeApp(App):
 
     def build(self):
-        #print(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test.kv'))
         return sm
 
 

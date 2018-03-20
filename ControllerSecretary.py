@@ -2,6 +2,11 @@ from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showerror
 import re
 
+'''
+The secretary can create and modify ModelSequenceQuery
+'''
+
+
 class ControllerSecretary:
 
     def __init__(self):
