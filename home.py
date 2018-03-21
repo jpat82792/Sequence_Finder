@@ -9,6 +9,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 import ControllerSecretary as ControllerSecretary
 import ViewTargetSequence
 import ViewOutputDestination
+import ViewReview
 
 
 project_directory = os.path.dirname(os.path.abspath(__file__))
@@ -43,6 +44,8 @@ class HomeApp(App):
             secretary=self.session_secretary,
             screen_manager=self.sm
         ))
+        self.sm.add_widget(ViewReview.ViewReview(name="Review", next_screen="Success", previous_screen="Save",
+                                                 screen_manager=self.sm, secretary=self.session_secretary))
         self.sm.current = "Save"
 
     def build(self):

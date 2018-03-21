@@ -10,7 +10,7 @@ from kivy.uix.textinput import TextInput
 class ViewOutputDestination(Screen):
     current_directory = "\\"
 
-    def __init__(self,next_screen, previous_screen, secretary, screen_manager, **kwargs):
+    def __init__(self, next_screen, previous_screen, secretary, screen_manager, **kwargs):
         super().__init__(**kwargs)
         self.main_layout = RelativeLayout()
 
