@@ -8,6 +8,7 @@ import ViewSelectSequenceFile
 from kivy.uix.screenmanager import ScreenManager, Screen
 import ControllerSecretary as ControllerSecretary
 import ViewTargetSequence
+import ViewOutputDestination
 
 
 project_directory = os.path.dirname(os.path.abspath(__file__))
@@ -30,12 +31,19 @@ class HomeApp(App):
                                                                          secretary=self.session_secretary,
                                                                          screen_manager=self.sm))
         self.sm.add_widget(ViewTargetSequence.ViewTargetSequence(name="Target",
-                                                                 next_screen="",
+                                                                 next_screen="Save",
                                                                  previous_screen="File name",
                                                                  secretary=self.session_secretary,
                                                                  screen_manager=self.sm
                                                                  ))
-        self.sm.current = "Sequence Type"
+        self.sm.add_widget(ViewOutputDestination.ViewOutputDestination(
+            name="Save",
+            next_screen="Review",
+            previous_screen="Target",
+            secretary=self.session_secretary,
+            screen_manager=self.sm
+        ))
+        self.sm.current = "Save"
 
     def build(self):
         return self.sm
