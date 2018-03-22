@@ -88,4 +88,7 @@ class ControllerSecretary:
                                                                                 self.after_target_sequence)
             print(self.regex_expression)
         else:
-            pass
+            self.regex_expression = self.nucleotide_translator.translate_target(self.target_sequence,
+                                                                                self.before_target_sequence,
+                                                                                self.after_target_sequence)
+            print(self.regex_expression)
