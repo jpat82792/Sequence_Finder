@@ -10,10 +10,12 @@ The secretary can create and modify ModelSequenceQuery
 
 
 class ControllerSecretary:
-    sequence_type = None
-    target_sequence = None
-    before_target_sequence = None
-    after_target_sequence = None
+    sequence_type = ""
+    target_sequence = ""
+    before_target_sequence = ""
+    after_target_sequence = ""
+    output_file_path = ""
+    output_file_name = ""
 
     def __init__(self):
         print("init secretary")
