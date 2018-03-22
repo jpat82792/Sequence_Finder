@@ -22,7 +22,7 @@ class AminoAcidTranslator(AbstractTranslator.AbstractTranslator):
                 print(target[i])
                 regex += target[i]
         print(regex)
-        final = "("+self.possible_characters+"{0,"+before+"})"+regex+"("+self.possible_characters+"{0,"+after+"})"
+        final = "("+self.possible_characters+"{0,"+before+"})("+regex+")("+self.possible_characters+"{0,"+after+"})"
         print(final)
         return final
 

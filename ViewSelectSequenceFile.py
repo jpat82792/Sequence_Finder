@@ -18,7 +18,7 @@ class ViewSelectSequenceFile(Screen):
                                                 size_hint_x=0.5, pos_hint={'y': 0.8, 'x': 0.25},
                                                 font_size=sqFdUi.UiConstants.label_font_size)
         self.file_chooser_icon_view = FileChooserIconView(size_hint_y=0.4, size_hint_x=0.5,
-                                                          pos_hint={'y': 0.4, 'x': 0.25}, filters=[self.is_dir])
+                                                          pos_hint={'y': 0.4, 'x': 0.25})
         self.button_next_screen = Button(text="NEXT", size_hint_y=0.2, size_hint_x=0.5, pos_hint={'y': 0.2, 'x': 0.25},
                                          font_size=sqFdUi.UiConstants.label_font_size,
                                          on_release=lambda btn: self.go_to_next_screen(next_screen=next_screen,
@@ -41,6 +41,9 @@ class ViewSelectSequenceFile(Screen):
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager, btn):
         secretary.target_file_path = self.file_chooser_icon_view.path
+        if len(self.file_chooser_icon_view.selection) > 0:
+            secretary.target_file_name = self.file_chooser_icon_view.selection[0]
+        print(len(secretary.target_file_name))
         print(self.file_chooser_icon_view.path)
         screen_manager.current = next_screen
 

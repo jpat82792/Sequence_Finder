@@ -3,6 +3,7 @@ from tkinter.messagebox import showerror
 import re
 import AminoAcidTranslator
 import NucleotideTranslator
+import os
 
 '''
 The secretary can create and modify ModelSequenceQuery
@@ -16,6 +17,7 @@ class ControllerSecretary:
     after_target_sequence = ""
     output_file_path = ""
     output_file_name = ""
+    target_file_name = ""
 
     def __init__(self):
         print("init secretary")
@@ -44,7 +46,8 @@ class ControllerSecretary:
         return str.split(file_path, "/")[-1]
 
     def open_file(self):
-        file = open(self.target_file_path, 'r')
+        actual_path = os.path.join(self.target_file_path, self.target_file_name)
+        file = open(actual_path, 'r')
         if file.mode == 'r':
             file_content = file.read()
             return file_content
@@ -57,24 +60,28 @@ class ControllerSecretary:
     def amino_acid_target_sequence_regex_convert(self, target_sequence):
         regexable_string = target_sequence.replace("X", ".")
 
-    def write_target_sequences_to_file(self, matches, output_file_name):
+    def write_target_sequences_to_file(self, matches):
         matches_length = len(matches)
-        results_file = open(output_file_name + self.result_file_extension, "w+")
+        print(self.output_file_path+self.output_file_name)
+        results_file = open(os.path.join(self.output_file_path, self.output_file_name), "w+")
         for i in range(matches_length):
             inner_length = len(matches[i])
             for j in range(inner_length):
                 results_file.write(matches[i][j]+"   ")
             results_file.write('\n')
 
-    def get_target_sequences(self, file_name):
+    def get_target_sequences(self, ):
         file = self.open_file()
-        print(file)
+        self.compiled_regex = re.compile(self.regex_expression)
         matches = self.compiled_regex.findall(file)
         print(matches)
-        self.write_target_sequences_to_file(matches=matches, output_file_name=file_name)
+        self.write_target_sequences_to_file(matches=matches)
 
     def translate_target(self):
         print("translate_target()")
+        print(self.target_file_name)
+        actual_path = os.path.join(self.target_file_path, self.target_file_name)
+        print(actual_path)
         if self.sequence_type == "Amino Acid":
             self.regex_expression = self.amino_acid_translator.translate_target(self.target_sequence,
                                                                                 self.before_target_sequence,
