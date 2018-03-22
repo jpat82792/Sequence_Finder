@@ -18,7 +18,6 @@ class ViewOutputDestination(Screen):
         self.file_chooser = FileChooserIconView(size_hint=(0.5, 0.4), pos_hint={'y': 0.4, 'x': 0.25})
         self.current_directory = self.file_chooser.path
         self.file_chooser.bind(path=self.okay)
-        #self.current_directory.set(self.file_chooser.path)
         self.button_next_screen = Button(text="NEXT", size_hint=(0.5, 0.1), pos_hint={'x': 0.25, 'y': 0.1},
                                          on_release=lambda btn: self.go_to_next_screen(next_screen=next_screen,
                                                                                        secretary=secretary,

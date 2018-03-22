@@ -46,7 +46,7 @@ class HomeApp(App):
         ))
         self.sm.add_widget(ViewReview.ViewReview(name="Review", next_screen="Success", previous_screen="Save",
                                                  screen_manager=self.sm, secretary=self.session_secretary))
-        self.sm.current = "Save"
+        self.sm.current = "Sequence Type"
 
     def build(self):
         return self.sm

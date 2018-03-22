@@ -12,22 +12,22 @@ class ViewTargetSequence(Screen):
         super().__init__(**kwargs)
         self.main_layout = RelativeLayout()
         self.label_screen = Label(text="Target Sequence", size_hint_y=0.2, size_hint_x=0.5,
-                              pos_hint={'y': 0.8, 'x': 0.25})
+                                  pos_hint={'y': 0.8, 'x': 0.25})
         self.text_input_before_target_sequence = TextInput(hint_text="Units before target", size_hint_y=0.1,
-                                                       size_hint_x=0.5, pos_hint={'y': 0.7, 'x': 0.25})
+                                                           size_hint_x=0.5, pos_hint={'y': 0.7, 'x': 0.25})
         self.text_input_target_sequence = TextInput(hint_text="Target sequence", size_hint_y=0.2, size_hint_x=0.5,
-                                                pos_hint={'y': 0.5, 'x': 0.25})
+                                                    pos_hint={'y': 0.5, 'x': 0.25})
         self.text_input_after_target_sequence = TextInput(hint_text="Units after target", size_hint_y=0.1,
-                                                      size_hint_x=0.5, pos_hint={'y': 0.4, 'x': 0.25})
+                                                          size_hint_x=0.5, pos_hint={'y': 0.4, 'x': 0.25})
         self.button_next_screen = Button(text="NEXT", size_hint_y=0.1,
-                                 size_hint_x=0.5, pos_hint={'y': 0.3, 'x': 0.25},
-                                 on_release=lambda btn: self.go_to_next_screen(next_screen=next_screen,
-                                                                               screen_manager=screen_manager,
-                                                                               secretary=secretary, btn=btn))
+                                         size_hint_x=0.5, pos_hint={'y': 0.3, 'x': 0.25},
+                                         on_release=lambda btn: self.go_to_next_screen(next_screen=next_screen,
+                                                                                       screen_manager=screen_manager,
+                                                                                       secretary=secretary, btn=btn))
         self.button_prev_screen = Button(text="PREV", size_hint_y=0.1,
                                          size_hint_x=0.5, pos_hint={'y': 0.2, 'x': 0.25},
                                          on_release=lambda btn: self.go_back(previous_screen=previous_screen,
-                                         screen_manager=screen_manager))
+                                                                             screen_manager=screen_manager))
 
         self.main_layout.add_widget(self.label_screen)
         self.main_layout.add_widget(self.text_input_before_target_sequence)
@@ -44,4 +44,8 @@ class ViewTargetSequence(Screen):
         screen_manager.current = previous_screen
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager, btn):
+        secretary.target_sequence = self.text_input_target_sequence.text
+        secretary.before_target_sequence = self.text_input_before_target_sequence.text
+        secretary.after_target_sequence = self.text_input_after_target_sequence.text
+        secretary.translate_target()
         screen_manager.current = next_screen

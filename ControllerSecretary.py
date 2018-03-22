@@ -1,6 +1,8 @@
 from tkinter.filedialog import askopenfilename
 from tkinter.messagebox import showerror
 import re
+import AminoAcidTranslator
+import NucleotideTranslator
 
 '''
 The secretary can create and modify ModelSequenceQuery
@@ -9,14 +11,19 @@ The secretary can create and modify ModelSequenceQuery
 
 class ControllerSecretary:
     sequence_type = None
+    target_sequence = None
+    before_target_sequence = None
+    after_target_sequence = None
 
     def __init__(self):
         print("init secretary")
         self.target_file_path = ""
         self.regex_expression = "([A-Z]{0,10})(K...W)([A-Z]{0,10})"
-        self.compiled_regex = re.compile(self.regex_expression)
+        self.compiled_regex = None
         self.result_file_name = "Sequence result file"
         self.result_file_extension = ".txt"
+        self.amino_acid_translator = AminoAcidTranslator.AminoAcidTranslator()
+        self.nucleotide_translator = AminoAcidTranslator.AminoAcidTranslator()
 
     def load_target_file(self, button_string_var):
         file_name = askopenfilename()
@@ -32,7 +39,7 @@ class ControllerSecretary:
             return
 
     def get_file_name(self, file_path):
-        return str.split(file_path,"/")[-1]
+        return str.split(file_path, "/")[-1]
 
     def open_file(self):
         file = open(self.target_file_path, 'r')
@@ -63,3 +70,13 @@ class ControllerSecretary:
         matches = self.compiled_regex.findall(file)
         print(matches)
         self.write_target_sequences_to_file(matches=matches, output_file_name=file_name)
+
+    def translate_target(self):
+        print("translate_target()")
+        if self.sequence_type == "Amino Acid":
+            self.regex_expression = self.amino_acid_translator.translate_target(self.target_sequence,
+                                                                                self.before_target_sequence,
+                                                                                self.after_target_sequence)
+            print(self.regex_expression)
+        else:
+            pass
