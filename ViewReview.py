@@ -33,7 +33,9 @@ class ViewReview(Screen):
         self.text_input_units_file_name = TextInput(text=secretary.output_file_name,
                                                     size_hint=(0.25, 0.1), pos_hint={'x': 0.5, 'y': 0.2})
         self.button_run_analysis = Button(text="Run analysis", size_hint=(0.5, 0.1), pos_hint={'x': 0.25, 'y': 0.1},
-                                          on_release=lambda btn: self.run_analysis(secretary=secretary))
+                                          on_release=lambda btn: self.run_analysis(secretary=secretary,
+                                                                                   screen_manager=screen_manager,
+                                                                                   next_screen=next_screen))
         self.button_previous_screen = Button(text="Previous", size_hint=(0.5, 0.1), pos_hint={'x': 0.25, 'y': 0},
                                              on_release=lambda btn: self.go_back(previous_screen=previous_screen,
                                                                                  screen_manager=screen_manager))
@@ -71,7 +73,8 @@ class ViewReview(Screen):
     def go_back(self, previous_screen, screen_manager):
         screen_manager.current = previous_screen
 
-    def run_analysis(self, secretary):
+    def run_analysis(self, secretary, screen_manager, next_screen):
         print("run_analysis()")
         secretary.get_target_sequences()
+        screen_manager.current = next_screen
 

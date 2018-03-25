@@ -10,6 +10,7 @@ import ControllerSecretary as ControllerSecretary
 import ViewTargetSequence
 import ViewOutputDestination
 import ViewReview
+import ViewSuccess
 
 
 project_directory = os.path.dirname(os.path.abspath(__file__))
@@ -46,7 +47,43 @@ class HomeApp(App):
         ))
         self.sm.add_widget(ViewReview.ViewReview(name="Review", next_screen="Success", previous_screen="Save",
                                                  screen_manager=self.sm, secretary=self.session_secretary))
+        self.sm.add_widget(ViewSuccess.ViewSuccess(name="Success", previous_screen="Review",
+                                                   secretary=self.session_secretary,
+                                                   screen_manager=self.sm, home=self))
         self.sm.current = "Sequence Type"
+
+    def set_screens(self):
+        '''
+        self.session_secretary = ControllerSecretary.ControllerSecretary()
+        self.sm.add_widget(ViewSelectSequenceType.ViewSelectSequenceType(name="Sequence Type",
+                                                                         secretary=self.session_secretary,
+                                                                         next_screen="File name",
+                                                                         screen_manager=self.sm))
+        self.sm.add_widget(ViewSelectSequenceFile.ViewSelectSequenceFile(name="File name",
+                                                                         previous_screen="Sequence Type",
+                                                                         next_screen="Target",
+                                                                         secretary=self.session_secretary,
+                                                                         screen_manager=self.sm))
+        self.sm.add_widget(ViewTargetSequence.ViewTargetSequence(name="Target",
+                                                                 next_screen="Save",
+                                                                 previous_screen="File name",
+                                                                 secretary=self.session_secretary,
+                                                                 screen_manager=self.sm
+                                                                 ))
+        self.sm.add_widget(ViewOutputDestination.ViewOutputDestination(
+            name="Save",
+            next_screen="Review",
+            previous_screen="Target",
+            secretary=self.session_secretary,
+            screen_manager=self.sm
+        ))
+        self.sm.add_widget(ViewReview.ViewReview(name="Review", next_screen="Success", previous_screen="Save",
+                                                 screen_manager=self.sm, secretary=self.session_secretary))
+        self.sm.add_widget(ViewSuccess.ViewSuccess(name="Success", previous_screen="Review",
+                                                   secretary=self.session_secretary,
+                                                   screen_manager=self.sm, home=self))
+        self.sm.current = "Sequence Type"
+        '''
 
     def build(self):
         return self.sm

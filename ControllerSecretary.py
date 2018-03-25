@@ -47,6 +47,8 @@ class ControllerSecretary:
 
     def open_file(self):
         actual_path = os.path.join(self.target_file_path, self.target_file_name)
+        print("open_file()")
+        print(actual_path)
         file = open(actual_path, 'r')
         if file.mode == 'r':
             file_content = file.read()
@@ -63,9 +65,6 @@ class ControllerSecretary:
     def write_target_sequences_to_file(self, matches):
         results_file = open(os.path.join(self.output_file_path, self.output_file_name), "w+")
         for match in matches:
-            print(match)
-            print(match.span()[0])
-            print(match.groups())
             results_file.write(str(match.span()[0]) + "   " + str(match.span()[1])+ "   ")
             current_group = match.groups()
             for i in range(len(current_group)):
@@ -81,9 +80,7 @@ class ControllerSecretary:
 
     def translate_target(self):
         print("translate_target()")
-        print(self.target_file_name)
         actual_path = os.path.join(self.target_file_path, self.target_file_name)
-        print(actual_path)
         if self.sequence_type == "Amino Acid":
             self.regex_expression = self.amino_acid_translator.translate_target(self.target_sequence,
                                                                                 self.before_target_sequence,
