@@ -61,19 +61,21 @@ class ControllerSecretary:
         regexable_string = target_sequence.replace("X", ".")
 
     def write_target_sequences_to_file(self, matches):
-        matches_length = len(matches)
-        print(self.output_file_path+self.output_file_name)
         results_file = open(os.path.join(self.output_file_path, self.output_file_name), "w+")
-        for i in range(matches_length):
-            inner_length = len(matches[i])
-            for j in range(inner_length):
-                results_file.write(matches[i][j]+"   ")
+        for match in matches:
+            print(match)
+            print(match.span()[0])
+            print(match.groups())
+            results_file.write(str(match.span()[0]) + "   " + str(match.span()[1])+ "   ")
+            current_group = match.groups()
+            for i in range(len(current_group)):
+                results_file.write(current_group[i] + "   ")
             results_file.write('\n')
 
     def get_target_sequences(self, ):
         file = self.open_file()
         self.compiled_regex = re.compile(self.regex_expression)
-        matches = self.compiled_regex.findall(file)
+        matches = self.compiled_regex.finditer(file)
         print(matches)
         self.write_target_sequences_to_file(matches=matches)
 
