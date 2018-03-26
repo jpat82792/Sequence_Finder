@@ -11,12 +11,14 @@ import ViewTargetSequence
 import ViewOutputDestination
 import ViewReview
 import ViewSuccess
+from kivy.core.window import Window
+Window.clearcolor = (.901, .901, .901, 1)
 
 
 project_directory = os.path.dirname(os.path.abspath(__file__))
 
 
-class HomeApp(App):
+class SequenceFinderApp(App):
     session_secretary = None
 
     def __init__(self, **kwargs):
@@ -90,5 +92,5 @@ class HomeApp(App):
 
 
 if __name__ == '__main__':
-    HomeApp().run()
+    SequenceFinderApp().run()
 
