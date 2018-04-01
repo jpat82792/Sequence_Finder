@@ -4,7 +4,9 @@ While not quite ready for a fully packaged release sequence finder can be launch
 
 <h2>Plans</h2>
 <ol>
-<li>Add input validation</li>
-<li>Add tests</li>
-<li>Create release packages for Mac, Windows, and Linux</li>
+  <li>Add input validation</li>
+  <li>Add tests</li>
+  <li>Add tutorial for end users</li>
+  <li>Add documentation for developers</li>
+  <li>Create release packages for Mac, Windows, and Linux</li>
 </ol>
