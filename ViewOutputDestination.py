@@ -5,6 +5,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.clock import Clock
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+import re
 import UiConstants
 
 
@@ -43,13 +44,16 @@ class ViewOutputDestination(Screen):
         self.label_current_directory = TextInput(text=self.current_directory, size_hint=(0.25, 0.1),
                                              font_name="fonts/RobotoMono-Regular.ttf",
                                              pos_hint={'x': 0.5, 'y': 0.3}
-                                                 , background_normal="backgrounds/input-background.jpg")
+                                                 , background_normal="backgrounds/input-background.jpg", disabled="true",
+                                                 background_disabled_normal="backgrounds/input-background.jpg")
+
         self.label_file_name = Label(text="File name:", size_hint=(0.25, 0.1), pos_hint={'y': 0.18, 'x': 0.25},
                                      font_name="fonts/RobotoMono-Regular.ttf",
                                      color=[0, 0, 0, 1])
         self.text_input_file_name = TextInput(size_hint=(0.25, 0.1), pos_hint={'y': 0.18, 'x': 0.5},
                                               font_name="fonts/RobotoMono-Regular.ttf"
                                               , background_normal="backgrounds/input-background.jpg")
+        self.text_input_file_name.input_filter = self.filename_text_filter
         self.main_layout.add_widget(self.label_screen)
         self.main_layout.add_widget(self.file_chooser)
         self.main_layout.add_widget(self.label_current_directory_field)
@@ -66,6 +70,10 @@ class ViewOutputDestination(Screen):
     def file_selection(self):
         print("hello")
         print(self.file_chooser.path)
+
+    def filename_text_filter(self, string, undo):
+        string = re.sub('[~`!@#$%^&*()_=+;"{|:,<>./?]', '', string)
+        return string
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager):
         screen_manager.current = next_screen
