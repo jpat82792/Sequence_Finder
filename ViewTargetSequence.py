@@ -4,6 +4,7 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import Screen
 from kivy.clock import Clock
 from kivy.uix.button import Button
+import re
 import UiConstants
 
 
@@ -26,6 +27,9 @@ class ViewTargetSequence(Screen):
                                                           background_normal="backgrounds/input-background.jpg",
                                                           font_name="fonts/RobotoMono-Regular.ttf", size_hint_y=0.1,
                                                           size_hint_x=0.35, pos_hint={'y': 0.34, 'x': 0.4})
+        self.text_input_target_sequence.input_filter = self.target_input_filter
+        self.text_input_after_target_sequence.input_filter = self.target_input_filter
+        self.text_input_before_target_sequence.input_filter = self.target_input_filter
         self.button_next_screen = Button(text="NEXT", size_hint_y=0.1,
                                          size_hint_x=0.25, pos_hint={'y': 0.0, 'x': 0.5},
                                          background_normal="backgrounds/next-button.jpg",
@@ -63,6 +67,10 @@ class ViewTargetSequence(Screen):
 
     def custom_init(self, *args):
         self.add_widget(self.main_layout)
+
+    def target_input_filter(self, string, undo):
+        string = re.sub('[~`!@#$%^&*()_=+\\\[\];"{}|:,<>./?1234567890]', '', string)
+        return string.upper()
 
     def go_back(self, previous_screen, screen_manager):
         screen_manager.current = previous_screen
