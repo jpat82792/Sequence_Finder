@@ -76,13 +76,16 @@ class ViewOutputDestination(Screen):
         return string
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager):
-        screen_manager.current = next_screen
 
-        secretary.output_file_path = self.label_current_directory.text
-        secretary.output_file_name = self.text_input_file_name.text + ".txt"
-        screen_manager.current_screen.reload_ui(secretary)
-        print(secretary.output_file_path)
-        print(secretary.output_file_name)
+        if len(self.text_input_file_name.text) > 0:
+            secretary.output_file_path = self.label_current_directory.text
+            secretary.output_file_name = self.text_input_file_name.text + ".txt"
+
+            screen_manager.current = next_screen
+            screen_manager.current_screen.reload_ui(secretary)
+
+        else:
+            print("no go")
 
     def go_back(self, previous_screen, screen_manager):
         screen_manager.current = previous_screen

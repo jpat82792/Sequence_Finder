@@ -51,9 +51,7 @@ class ViewSelectSequenceFile(Screen):
         secretary.target_file_path = self.file_chooser_icon_view.path
         if len(self.file_chooser_icon_view.selection) > 0:
             secretary.target_file_name = self.file_chooser_icon_view.selection[0]
-        print(len(secretary.target_file_name))
-        print(self.file_chooser_icon_view.path)
-        screen_manager.current = next_screen
+            screen_manager.current = next_screen
 
     def go_back (self, previous_screen, screen_manager):
         screen_manager.current = previous_screen
