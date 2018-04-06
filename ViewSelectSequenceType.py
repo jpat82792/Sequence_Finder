@@ -51,5 +51,13 @@ class ViewSelectSequenceType(Screen):
         self.add_widget(self.main_layout)
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager, btn):
-        secretary.sequence_type = self.button_dropdown.text
-        screen_manager.current = next_screen
+        if self.button_dropdown.text != "Select Sequence Type" :
+
+            print("Got here")
+            secretary.sequence_type = self.button_dropdown.text
+            screen_manager.current = next_screen
+        else:
+            print("invalid input")
+
+
+
