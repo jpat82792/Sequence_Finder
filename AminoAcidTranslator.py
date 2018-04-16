@@ -6,26 +6,7 @@ class AminoAcidTranslator(AbstractTranslator.AbstractTranslator):
     possible_characters = "[A-Z]"
 
     def __init__(self):
-        self.regex = ""
+        super().__init__(dictionary=self.dictionary, possible_characters=self.possible_characters)
 
-    def translate_target(self, target, before, after):
-        print(self.dictionary)
-        print(target)
-        regex = ""
-        for i in range(len(target)):
-            print(i)
-            print(target[i])
-            if target[i] is "Z" or target[i] is "J" or target[i] is "B" or target[i] is "X":
-                print(self.dictionary[target[i]])
-                regex += self.dictionary[target[i]]
-            else:
-                print(target[i])
-                regex += target[i]
-        print(regex)
-        final = "("+self.possible_characters+"{0,"+before+"})("+regex+")("+self.possible_characters+"{0,"+after+"})"
-        print(final)
-        return final
-
-
-    def translate(self, sequence, targetSequence):
-        pass
+    def translate_target(self, target, beforeTarget, afterTarget):
+        return super().translate_target(target=target, beforeTarget=beforeTarget, afterTarget=afterTarget)

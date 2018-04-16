@@ -37,7 +37,6 @@ class ControllerSecretary:
                 self.target_file_path = file_name
                 print(self.target_file_path)
                 button_string_var.set(self.get_file_name(file_name))
-
             except:
                 showerror("Opening Sequence File", "Failed to read file \n '%s'" % file_name)
             return
@@ -73,6 +72,7 @@ class ControllerSecretary:
 
     def get_target_sequences(self, ):
         file = self.open_file()
+        print(self.regex_expression)
         self.compiled_regex = re.compile(self.regex_expression)
         matches = self.compiled_regex.finditer(file)
         print(matches)
@@ -82,12 +82,15 @@ class ControllerSecretary:
         print("translate_target()")
         actual_path = os.path.join(self.target_file_path, self.target_file_name)
         if self.sequence_type == "Amino Acid":
+            print("AA parse")
             self.regex_expression = self.amino_acid_translator.translate_target(self.target_sequence,
                                                                                 self.before_target_sequence,
                                                                                 self.after_target_sequence)
+            print("self.regex_expression")
             print(self.regex_expression)
         else:
             self.regex_expression = self.nucleotide_translator.translate_target(self.target_sequence,
                                                                                 self.before_target_sequence,
                                                                                 self.after_target_sequence)
+            print("Nucleotide parse")
             print(self.regex_expression)

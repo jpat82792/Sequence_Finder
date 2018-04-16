@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ca2ca25-5a29-47b9-a337-5e39fd137d4f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AbstractTranslator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AbstractTranslator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AminoAcidTranslator.py" beforeDir="false" afterPath="$PROJECT_DIR$/AminoAcidTranslator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewSelectSequenceFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/ViewSelectSequenceFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewSelectSequenceType.py" beforeDir="false" afterPath="$PROJECT_DIR$/ViewSelectSequenceType.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControllerSecretary.py" beforeDir="false" afterPath="$PROJECT_DIR$/ControllerSecretary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NucleotideTranslator.py" beforeDir="false" afterPath="$PROJECT_DIR$/NucleotideTranslator.py" afterDir="false" />
     </list>
     <ignored path="untitled6.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,32 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ViewOutputDestination.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ViewOutputDestination.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ViewSelectSequenceType.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ViewSelectSequenceType.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="136">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -79,20 +57,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AminoAcidTranslator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AminoAcidTranslator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AminoAcidTranslator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+            <state relative-caret-position="136">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="98" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.kv" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python34/Lib/site-packages/kivy/data/style.kv">
+      <file leaf-file-name="ControllerSecretary.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ControllerSecretary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2839">
-              <caret line="167" column="71" selection-start-line="167" selection-start-column="71" selection-end-line="167" selection-end-column="71" />
+            <state relative-caret-position="371">
+              <caret line="87" column="96" lean-forward="true" selection-start-line="87" selection-start-column="96" selection-end-line="87" selection-end-column="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewReview.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ViewReview.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1186">
+              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NucleotideTranslator.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NucleotideTranslator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractTranslator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AbstractTranslator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -142,6 +147,8 @@
       <find>self.button_dropdown</find>
       <find>self.text_input_file_name</find>
       <find>input-background</find>
+      <find>self.compiled_regex</find>
+      <find>self.regex_expression</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,9 +166,6 @@
         <option value="$PROJECT_DIR$/home.kv" />
         <option value="$PROJECT_DIR$/ModelSequenceQuery" />
         <option value="$PROJECT_DIR$/ModelQueryResults.py" />
-        <option value="$PROJECT_DIR$/AbstractTranslator.py" />
-        <option value="$PROJECT_DIR$/NucleotideTranslator.py" />
-        <option value="$PROJECT_DIR$/ControllerSecretary.py" />
         <option value="$PROJECT_DIR$/UiConstants.py" />
         <option value="C:/Python34/Lib/site-packages/kivy/data/style.kv" />
         <option value="$PROJECT_DIR$/ViewSuccess.py" />
@@ -173,7 +177,10 @@
         <option value="$PROJECT_DIR$/home.py" />
         <option value="$PROJECT_DIR$/ViewSelectSequenceFile.py" />
         <option value="$PROJECT_DIR$/home.spec" />
+        <option value="$PROJECT_DIR$/ControllerSecretary.py" />
         <option value="$PROJECT_DIR$/AminoAcidTranslator.py" />
+        <option value="$PROJECT_DIR$/AbstractTranslator.py" />
+        <option value="$PROJECT_DIR$/NucleotideTranslator.py" />
       </list>
     </option>
   </component>
@@ -440,12 +447,12 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5036881" side_tool="true" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5021075" side_tool="true" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49841937" weight="0.32897604" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49789253" visible="true" weight="0.32897604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4963119" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49578503" weight="0.32897604" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -776,27 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AbstractTranslator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ControllerSecretary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="62" column="49" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewReview.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ViewSuccess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -808,13 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NucleotideTranslator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -839,16 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2839">
           <caret line="167" column="71" selection-start-line="167" selection-start-column="71" selection-end-line="167" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ViewSelectSequenceType.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,10 +855,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ViewSelectSequenceType.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ViewReview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1186">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AbstractTranslator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ControllerSecretary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="87" column="96" lean-forward="true" selection-start-line="87" selection-start-column="96" selection-end-line="87" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AminoAcidTranslator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NucleotideTranslator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
         </state>
       </provider>
     </entry>
