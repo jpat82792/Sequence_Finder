@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.clock import Clock
 from kivy.uix.label import Label
 from kivy.lang.builder import Builder
+import kivy
+from kivy.resources import resource_add_path
 import os
 import ViewSelectSequenceType
 import ViewSelectSequenceFile
@@ -10,7 +12,9 @@ import ControllerSecretary as ControllerSecretary
 import ViewTargetSequence
 import ViewOutputDestination
 import ViewReview
+import sys
 import ViewSuccess
+from kivy.deps import sdl2, glew
 from kivy.core.window import Window
 Window.clearcolor = (.901, .901, .901, 1)
 
@@ -21,8 +25,16 @@ project_directory = os.path.dirname(os.path.abspath(__file__))
 class SequenceFinderApp(App):
     session_secretary = None
 
+    def resource_path(self):
+        if hasattr(sys, '_MEIPASS'):
+            return os.path.join(sys._MEIPASS)
+        return os.path.join(os.path.abspath("."))
+
+
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        kivy.resources.resource_add_path(self.resource_path())
         self.session_secretary = ControllerSecretary.ControllerSecretary()
         self.sm = ScreenManager()
         self.sm.add_widget(ViewSelectSequenceType.ViewSelectSequenceType(name="Sequence Type",

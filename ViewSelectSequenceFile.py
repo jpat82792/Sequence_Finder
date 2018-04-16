@@ -24,7 +24,7 @@ class ViewSelectSequenceFile(Screen):
                                          font_size=sqFdUi.UiConstants.label_font_size,
                                          background_normal="backgrounds/next-button.jpg",
                                          background_down="backgrounds/next-button-pressed.jpg",
-                                         font_name="fonts/RobotoMono-Bold.ttf",
+                                         font_name="./fonts/RobotoMono-Bold.ttf",
                                          on_release=lambda btn: self.go_to_next_screen(next_screen=next_screen,
                                                                                        secretary=secretary,
                                                                                        screen_manager=screen_manager,

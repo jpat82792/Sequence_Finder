@@ -19,8 +19,8 @@ class ViewSelectSequenceType(Screen):
         self.dropdown_sequence_type = DropDown()
         for index in range(len(self.sequence_types)):
             btn = Button(text=self.sequence_types[index], height=60, size_hint_y=None,
-                         font_name="fonts/RobotoMono-Bold.ttf", background_normal="backgrounds/dropdown-options.jpg",
-                         background_down="backgrounds/dropdown-background-pressed.jpg"
+                         font_name="./fonts/RobotoMono-Bold.ttf", background_normal="./backgrounds/dropdown-options.jpg",
+                         background_down="./backgrounds/dropdown-background-pressed.jpg"
                          )
             btn.bind(on_release=lambda btn: self.dropdown_sequence_type.select(btn.text))
             self.dropdown_sequence_type.add_widget(btn)
