@@ -70,12 +70,17 @@ class ControllerSecretary:
                 results_file.write(current_group[i] + "   ")
             results_file.write('\n')
 
+    def trim_nonsequence_characters(self):
+        self.trim_regex = "((?=>.*\n((.|\s)*)))"
+        self.trim_regex_compiled = re.compile(self.trim_regex)
+        self.trim_regex_compiled
+        self.file = self.trim_regex_compiled.findall(self.file)
+
     def get_target_sequences(self, ):
-        file = self.open_file()
-        print(self.regex_expression)
+        self.file = self.open_file()
         self.compiled_regex = re.compile(self.regex_expression)
-        matches = self.compiled_regex.finditer(file)
-        print(matches)
+        self.trim_nonsequence_characters()
+        matches = self.compiled_regex.finditer(self.file[0][1])
         self.write_target_sequences_to_file(matches=matches)
 
     def translate_target(self):
