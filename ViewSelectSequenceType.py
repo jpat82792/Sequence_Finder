@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.clock import Clock
 from kivy.uix.dropdown import DropDown
 from kivy.uix.relativelayout import RelativeLayout
+from kivy.uix.togglebutton import ToggleButton
 
 project_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -16,21 +17,23 @@ class ViewSelectSequenceType(Screen):
     def __init__(self, next_screen, secretary, screen_manager, **kwargs):
         super().__init__(**kwargs)
         self.main_layout = RelativeLayout()
-        self.dropdown_sequence_type = DropDown()
+        '''self.dropdown_sequence_type = DropDown()
         for index in range(len(self.sequence_types)):
             btn = Button(text=self.sequence_types[index], height=60, size_hint_y=None,
                          font_name="./fonts/RobotoMono-Bold.ttf", background_normal="./backgrounds/dropdown-options.jpg",
                          background_down="./backgrounds/dropdown-background-pressed.jpg"
                          )
             btn.bind(on_release=lambda btn: self.dropdown_sequence_type.select(btn.text))
-            self.dropdown_sequence_type.add_widget(btn)
-        self.button_dropdown = Button(text="Select Sequence Type", size_hint_x=0.5, size_hint_y=0.2, font_size="30sp",
+            self.dropdown_sequence_type.add_widget(btn)'''
+        '''self.button_dropdown = Button(text="Select Sequence Type", size_hint_x=0.5, size_hint_y=0.2, font_size="30sp",
                                       pos_hint={'y': 0.5, 'x': 0.25}, font_name="fonts/RobotoMono-Bold.ttf"
                                       , background_normal="backgrounds/dropdown-background.jpg",
-                                      background_down="backgrounds/dropdown-background-pressed.jpg")
-        self.button_dropdown.bind(on_release=self.dropdown_sequence_type.open)
-        self.dropdown_sequence_type.bind(on_select=lambda instance, x: setattr(self.button_dropdown, 'text', x))
-        self.main_layout.add_widget(self.button_dropdown)
+                                      background_down="backgrounds/dropdown-background-pressed.jpg")'''
+        #self.button_dropdown.bind(on_release=self.dropdown_sequence_type.open)
+        #self.dropdown_sequence_type.bind(on_select=lambda instance, x: setattr(self.button_dropdown, 'text', x))
+        #self.main_layout.add_widget(self.button_dropdown)
+        self.button_aa = ToggleButton(text="Amino Acid", size_hint_x=0.5, size_hint_y=0.1, pos_hint={'y': 0.6, 'x': 0.25}, state="down", group="seq")
+        self.button_nt = ToggleButton(text="Nucleotide", size_hint_x=0.5, size_hint_y=0.1, pos_hint={'y': 0.5, 'x': 0.25}, group="seq")
         self.button_next_screen = Button(text="NEXT", size_hint_x=0.5, size_hint_y=0.1, font_size="30sp",
                                          background_color=[0, .05, 1, 1],
                                          background_normal="backgrounds/next-button.jpg",
@@ -44,6 +47,8 @@ class ViewSelectSequenceType(Screen):
                                      pos_hint={'y': .8, 'x': 0.25}, font_name="fonts/RobotoMono-Bold.ttf",
                                      color=[0, 0, 0, 1])
         self.main_layout.add_widget(self.label_screen_id)
+        self.main_layout.add_widget(self.button_aa)
+        self.main_layout.add_widget(self.button_nt)
         self.main_layout.add_widget(self.button_next_screen)
         Clock.schedule_once(self.my_init, 1)
 
@@ -51,13 +56,12 @@ class ViewSelectSequenceType(Screen):
         self.add_widget(self.main_layout)
 
     def go_to_next_screen(self, next_screen, secretary, screen_manager, btn):
-        if self.button_dropdown.text != "Select Sequence Type" :
-
-            print("Got here")
-            secretary.sequence_type = self.button_dropdown.text
-            screen_manager.current = next_screen
+        if self.button_aa.state == "down":
+            secretary.sequence_type = "Amino Acids"
         else:
-            print("invalid input")
+            secretary.sequence_type = "Nucleotide"
+        self.button_nt.state = "down"
+        screen_manager.current = next_screen
 
 
 
